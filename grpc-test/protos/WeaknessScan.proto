@@ -1,0 +1,22 @@
+syntax = "proto3";
+package service;
+
+option go_package = ".;hello_grpc_proto";
+
+service Weakness {
+	rpc WeaknessUpload (WeaknessScanRequest) returns (WeaknessScanResponse) {};
+}
+
+message WeaknessScanRequest {
+	string slice=1;
+	string time=2;
+	string block=3;
+	string detail=4;
+	string message=5;
+}
+
+message WeaknessScanResponse {
+	string ack=1;
+	string next=2;
+}
+
